@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "Wildstripe";
+  src: url("./assets/fonts/Wildstripe.otf") format("opentype");
+}
+
+.button-view {
+  border-radius: 0.9rem;
+  text-align: center;
+  background: #b6a6d3; 
+  margin: 0;
+  border: none;
+  border: 2px solid transparent;
+  background: linear-gradient(160deg, #f0f1f4 0%, #e4e6eb 100%);
+  box-shadow: -3px -3px 6px 2px #8b8b8b6c, 5px 5px 8px 0px rgba(0, 0, 0, 0.17),
+        1px 2px 2px 0px rgba(0, 0, 0, 0.1);
+  transition: 0.1s;
+  
+}
+
+.button-view:hover{
+	background: linear-gradient(160deg, #f0f1f4 0%, #f7f7fc 100%);
+}
+
+
+.btnn:hover {
+  border: 2px solid #fafafa;
+  box-shadow: inset -3px -3px 5px 0px #ffffff, -1px -1px 4px 0px #ffffff,
+  inset 5px 5px 10px 0px rgba(0, 0, 0, 0.12),
+  inset 2px 2px 3px 0px rgba(0, 0, 0, 0.07),
+  1px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  }
+
+.bg-carousel{
+
+  background: linear-gradient(160deg, #f0f1f4 0%, #e4e6eb 100%);
+}
+
+.rounded-boder-top {
+  border-radius: 25px 25px 0 0;
+}
+
+.bg-carousel-f {
+background-image: linear-gradient(
+  65deg,
+  hsl(153deg 27% 6%) 0%,
+  hsl(163deg 31% 9%) 20%,
+  hsl(171deg 43% 12%) 28%,
+  hsl(178deg 58% 13%) 35%,
+  hsl(183deg 83% 15%) 41%,
+  hsl(186deg 100% 17%) 46%,
+  hsl(189deg 100% 21%) 52%,
+  hsl(192deg 100% 25%) 60%,
+  hsl(194deg 100% 29%) 71%,
+  hsl(196deg 99% 33%) 100%
+); 
+}
