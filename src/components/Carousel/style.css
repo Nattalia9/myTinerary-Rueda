@@ -5,6 +5,9 @@
 
 .slick-slide > div {
   margin: 25px 15px 30px 15px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .slick-list {
@@ -13,6 +16,7 @@
 
 .card {
   border: 2px solid transparent;
+  
   /* background-color: #f2f3f7;
   box-shadow: -3px -3px 6px 2px #ffffff, 7px 7px 10px 0px rgba(0, 0, 0, 0.20),
     1px 2px 2px 0px rgba(0, 0, 0, 0.1); 
@@ -23,7 +27,10 @@
   transition: 0.1s;
   overflow: hidden; 
   height: 330px;
+  width: 330px;
   color: #121111;
+  padding: 2px 18px 18px 18px;
+  max-width: min-content;
 }
 
 .card-top h1 {

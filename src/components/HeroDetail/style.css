@@ -1,0 +1,29 @@
+.hero-detail-bg {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffffed;
+}
+
+.gradient-detail {
+  background: linear-gradient(transparent 0%, rgba(30,30,31,0.38) 20%, rgba(30,31,32,0.56) 31%, rgba(30, 30, 31, 0.714) 54%, #1e1f20 100%);
+  width: 100%;
+  height: 100vh;
+}
+
+.text-hero {
+  margin-top: 90px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.text-hero h2{
+  color: #fff;
+  margin-bottom: 25px;
+}
+
+.text-hero p{
+  color: #ffffffe1;
+  margin-bottom: 5px;
+}

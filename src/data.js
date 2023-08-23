@@ -1,4 +1,4 @@
-export const dataDigitalBestSeller = [
+export const cities = [
   {
     id: 1,
     city: 'Ottawa',

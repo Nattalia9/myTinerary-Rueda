@@ -1,14 +1,10 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import MainCities from '../components/MainCities'
 
 export default function Cities() {
-
-  let {id} = useParams()
-
   return (
-    <div>
-      <h2 className='mt-5 text-center'>Cities...</h2>
-      <p>{id}</p>
+    <div className='container-fluid p-0'>
+      <MainCities />
     </div>
   )
 }

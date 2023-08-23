@@ -20,7 +20,7 @@ footer {
     transition: 0.1s;
 }
 
-.icon-color {
+.icon-color, .anchor {
     color:#707b9c;
 }
 
@@ -30,4 +30,8 @@ footer {
 
 footer h6 {
     font-size: 14px;
+}
+
+.anchor:hover {
+  color:#96a2c7;
 }

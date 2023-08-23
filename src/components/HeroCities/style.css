@@ -1,19 +1,12 @@
-.main-home {
-	min-height: 100vh;
+.bg {
+	min-height: 38vh;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center; 
-	background-image: url('/felix40.jpg');
+	background-image: url('../public/felix40.jpg');
 	background-size: cover; 
 	background-position: top;
 	background-repeat: no-repeat;
-}
-
-.hero {	
-	height: 100%;
-	width: 100%;
-	padding-top: 56px;
-	margin: 0;
 }

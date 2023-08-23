@@ -4,7 +4,7 @@ import './style.css'
 
 export default function Main() {
 	return (
-		<main className="container-fluid p-0">
+		<main className="main-home container-fluid p-0">
 			<Hero />
 		</main>
 	)
