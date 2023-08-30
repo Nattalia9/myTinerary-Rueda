@@ -1,3 +1,6 @@
+Navbar{
+  text-decoration: none;
+}
 .logo {
 	font-weight: 600;
 	color: #000000bb;
@@ -6,11 +9,16 @@
 .navb{
 	font-size: 15px;
 	background-color: transparent;
-	color: rgb(68, 67, 67);
+  /* background: linear-gradient(0deg, transparent 0%, rgba(255,255,255,0.65) 92%) 50% 50%/180% 100%; */
+	/* color: rgb(68, 67, 67); */
+  color:#ffffff;
+  text-decoration: none;
 	transition: background-color 0.7s ease-in-out;
   transition: color 0.7s easy-in-out;
+  text-decoration: none;
 } 
 .navbg {
+  color: #000;
 	border: 2px solid transparent;
   background: linear-gradient(160deg, #f0f1f4 0%, #e4e6eb 100%);
   box-shadow: -3px -3px 6px 2px #ffffff, 5px 5px 8px 0px rgba(0, 0, 0, 0.17),
@@ -18,18 +26,32 @@
   transition: 0.1s;
 } 
 
-.coloo {
-	color: rgb(32, 32, 32);
-}
-.anchor {
-  text-decoration: none;
-  color: rgb(68, 67, 67);
+.navbar-expand-lg .navbar-nav .nav-link {
+  background: none;
 }
 
-.anchor:hover {
-  color: rgb(39, 38, 38);
-  font-weight: 500;
+.coloo {
+	color: rgb(255, 255, 255);
+  text-decoration: none;
 }
+
+.anchor-nav {
+  text-decoration: none;
+  color: rgb(68, 67, 67); 
+
+  
+}
+
+.anchor-navb {
+  text-decoration: none;
+  color: rgb(68, 67, 67); 
+}
+
+.anchor-nav:hover {
+  color: rgb(39, 38, 38);
+  color: #ffffff;
+  font-weight: 500;
+} 
 
 .login {
 	font-size: 15px;

@@ -5,7 +5,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center; 
-	background-image: url('/felix40.jpg');
+	background: linear-gradient(0deg, transparent 0%, rgba(20,20,20,0.21) 97%) 50% 50%/180% 100%,url('/felix40.jpg');
 	background-size: cover; 
 	background-position: top;
 	background-repeat: no-repeat;

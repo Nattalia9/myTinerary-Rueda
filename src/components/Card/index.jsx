@@ -13,7 +13,7 @@ export default function Card({ciudad}) {
           <h3>{ciudad.city}</h3>
           <div className='d-flex justify-content-between align-items-center'>  
             <p className='p-country'><span className='icon-country'><BsFillGeoAltFill /></span>{ciudad.country}</p>
-            <button className='btn-to-detail'><Anchor to={"/cities/"+ciudad._id}><BsPlusLg className='icon-to-detail'/></Anchor></button>
+            <button title="View more" className='btn-to-detail'><Anchor to={"/cities/"+ciudad._id}><BsPlusLg className='icon-to-detail'/></Anchor></button>
           </div>
         </div>
       </div>

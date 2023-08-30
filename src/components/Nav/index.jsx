@@ -35,8 +35,8 @@ export default function NavScrollExample() {
             navbarScroll
             defaultActiveKey="/home"
           >
-            <Nav.Link className={navb ? 'coloo' : 'navb'}><Anchor to="/" className='anchor'>/ Home</Anchor></Nav.Link>
-            <Nav.Link eventKey="link-1" className={navb ? 'coloo' : 'navb'} ><Anchor to="/cities" className='anchor'>/ Cities</Anchor></Nav.Link>
+            <Nav.Link><Anchor to="/" className={navb ? 'coloo anchor-nav' : 'navb'}>/ Home</Anchor></Nav.Link>
+            <Nav.Link><Anchor to="/cities" className={navb ? 'coloo anchor-nav' : 'navb'}>/ Cities</Anchor></Nav.Link>
           </Nav>
           <Button className="login px-3"><span className="icon"><BsFillPersonFill className="red" /></span>Login</Button>
         </Navbar.Collapse>
