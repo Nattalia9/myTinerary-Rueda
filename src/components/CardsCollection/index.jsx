@@ -3,14 +3,31 @@ import Card from '../Card'
 import './style.css'
 import { BsSearch } from "react-icons/bs";
 import { getAllCities } from "../../services/citiesQueries.js"
+import { useSelector, useDispatch } from 'react-redux';
+import citiesActions  from '../../redux/actions/citiesActions'
+
 
 export default function CardsCollection() {
 
-  const [ cities, setCities ] = useState([]);
+  // const [ cities, setCities ] = useState([]);
+
+  
+
+  const citiesStore = useSelector(store => store.citiesReducer)
+  console.log("store",citiesStore);
+
+  const dispatch = useDispatch()
+
   const input = useRef(null)
   useEffect(() => {
     getAllCities()
-      .then((data) => setCities(data))
+      // .then((data) => setCities(data))
+      .then((cities) => dispatch(citiesActions(cities)))
+
+      // .then((cities) => {setCities(cities);
+      // .then((data) => {setCities(data);
+      // dispatch(citiesActions(cities));
+      // })
       .catch((err) => console.log(err));
   },[]);
 
@@ -22,7 +39,7 @@ export default function CardsCollection() {
     if(search) {
       query += "city=" + search;
     }
-    getAllCities(query).then(setCities);
+    // getAllCities(query).then(setCities);//sacar
   };
 
   return (
@@ -40,8 +57,10 @@ export default function CardsCollection() {
       <div className="row justify-content-center">
         <div className="columnita col pb-5">
 
-          {cities.length > 0 ? (
-              cities.map((each) => ( 
+          {citiesStore.length > 0 ? (
+            // {cities.length > 0 ? (
+              citiesStore.filteredCities.map((each) => ( 
+              // cities.map((each) => ( 
             <Card key={each._id} ciudad={each} />))
             ) : (
               <h2>No cities found.</h2>
