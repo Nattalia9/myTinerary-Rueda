@@ -2,43 +2,37 @@ import { useEffect, useState, useRef } from 'react'
 import Card from '../Card'
 import './style.css'
 import { BsSearch } from "react-icons/bs";
-import { getAllCities } from "../../services/citiesQueries.js"
+// import { getAllCities } from "../../services/citiesQueries.js"
+import {getCities, filterCities}  from '../../redux/actions/citiesActions.js'
 import { useSelector, useDispatch } from 'react-redux';
-import citiesActions  from '../../redux/actions/citiesActions'
 
 
 export default function CardsCollection() {
-
-  // const [ cities, setCities ] = useState([]);
-
   
-
+  // const [ cities, setCities ] = useState([]);
+  
+  
+  
+  const input = useRef(null)
+  
   const citiesStore = useSelector(store => store.citiesReducer)
   console.log("store",citiesStore);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const input = useRef(null)
   useEffect(() => {
-    getAllCities()
-      // .then((data) => setCities(data))
-      .then((cities) => dispatch(citiesActions(cities)))
-
-      // .then((cities) => {setCities(cities);
-      // .then((data) => {setCities(data);
-      // dispatch(citiesActions(cities));
-      // })
-      .catch((err) => console.log(err));
-  },[]);
+    dispatch( getCities() );
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault()
     // console.log(input.current.value);
     const search = input.current.value;
-    let query = `?`;
-    if(search) {
-      query += "city=" + search;
-    }
+    // let query = `?`;
+    // if(search) {
+    //   query += "city=" + search;
+    // }
+    dispatch(filterCities(search));//nuevo agregado
     // getAllCities(query).then(setCities);//sacar
   };
 
@@ -57,16 +51,33 @@ export default function CardsCollection() {
       <div className="row justify-content-center">
         <div className="columnita col pb-5">
 
-          {citiesStore.length > 0 ? (
-            // {cities.length > 0 ? (
-              citiesStore.filteredCities.map((each) => ( 
-              // cities.map((each) => ( 
-            <Card key={each._id} ciudad={each} />))
+        {citiesStore.filteredCities.length > 0 ? (
+            
+            citiesStore.filteredCities.map((each) => ( 
+              // citiesStore.allCities.map((each) => ( 
+                // cities.map((each) => ( 
+                  <Card key={each._id} ciudad={each} />))
             ) : (
-              <h2>No cities found.</h2>
-            )} 
+                    <h2>No cities found.</h2>
+                    )} 
+
+
         </div>
       </div>
     </div>
   )
 }
+
+// {cities.length > 0 ? (
+
+// useEffect(() => {
+//   getAllCities()
+//     // .then((data) => setCities(data))
+//     .then((cities) => dispatch(citiesActions(cities)))
+
+//     // .then((cities) => {setCities(cities);
+//     // .then((data) => {setCities(data);
+//     // dispatch(citiesActions(cities));
+//     // })
+//     .catch((err) => console.log(err));
+// },[]);

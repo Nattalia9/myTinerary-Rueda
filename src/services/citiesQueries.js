@@ -21,6 +21,6 @@ export const getCity = async (id) => {
       // const {data} = await cities("/api/cities/"+id)
       return data.cityFound
   } catch (error) {
-      return []
+      return {}
   }
 }
