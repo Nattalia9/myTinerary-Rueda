@@ -26,9 +26,6 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, .5);
-  /*background: linear-gradient(transparent 0%, rgba(0,0,0,0.65) 92%) 50% 50%/180% 100%;
-  *//*background: linear-gradient(transparent 0%, rgba(0,0,0,0.43) 17%, rgba(0,0,0,0.64) 75%) 50% 50%/180% 100%;
-    */
 } 
 
 .text-hero {
@@ -46,7 +43,6 @@
   width: 47px;
   padding: 0;
   border-radius: 50%;
-  /* box-shadow: -3px -3px 6px 2px #74757a46, 5px 5px 8px 0px rgba(67, 59, 59, 0.075), 1px 2px 2px 0px rgba(0, 0, 0, 0.1); */
   transition: 0.1s;
   bottom: 90px;
   left: 35px;

@@ -13,14 +13,12 @@
   background: linear-gradient(160deg, #f0f1f4 0%, #e4e6eb 100%);
   box-shadow: -3px -3px 6px 2px #8b8b8b6c, 5px 5px 8px 0px rgba(0, 0, 0, 0.17),
         1px 2px 2px 0px rgba(0, 0, 0, 0.1);
-  transition: 0.1s;
-  
+  transition: 0.1s; 
 }
 
 .button-view:hover{
 	background: linear-gradient(160deg, #f0f1f4 0%, #f7f7fc 100%);
 }
-
 
 .btnn:hover {
   border: 2px solid #fafafa;
@@ -28,10 +26,13 @@
   inset 5px 5px 10px 0px rgba(0, 0, 0, 0.12),
   inset 2px 2px 3px 0px rgba(0, 0, 0, 0.07),
   1px 2px 3px 0px rgba(0, 0, 0, 0.1);
-  }
+}
+
+a {
+  text-decoration: none;
+}
 
 .bg-carousel{
-
   background: linear-gradient(160deg, #f0f1f4 0%, #e4e6eb 100%);
 }
 
@@ -53,4 +54,8 @@ background-image: linear-gradient(
   hsl(194deg 100% 29%) 71%,
   hsl(196deg 99% 33%) 100%
 ); 
+}
+
+.gray-bg {
+  background-color: #EEEFF2;
 }

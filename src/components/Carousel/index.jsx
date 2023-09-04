@@ -59,7 +59,7 @@ export default function Carousel() {
     <div className='Carousel py-5 mx-5'>
       <h2 className='text-center mt-4'>Popular Mytineraries</h2>
       <div className='d-flex justify-content-center'>
-      <button className='btnn btn-cities text-center px-4 py-2 mb-4 mt-3'><Anchor to="/cities" className='anchor'>Go to Cities</Anchor></button>
+      <button className='btnn btn-cities text-center px-4 py-2 mb-4 mt-3'><Anchor to="/cities" className='anchor-c'>Go to Cities</Anchor></button>
       </div>
       <Slider{...settings}>
         {cities.map((item, key) =>(
