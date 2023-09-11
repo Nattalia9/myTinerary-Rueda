@@ -54,6 +54,9 @@ Navbar{
 } 
 
 .login {
+  height: 48px;
+  width: 116.75px;
+  min-width: max-content;
 	font-size: 15px;
   border: 2px solid transparent;
   background: linear-gradient(160deg, #f0f1f4 0%, #e4e6eb 100%);
@@ -91,6 +94,7 @@ Navbar{
   text-align: center;
   height: 32px;
   width: 32px;
+  aspect-ratio: 1/1;
   padding: 0;
   border-radius: 50%;
   align-items: center; 

@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import Itineraries from '../components/Itineraries'
 import HeroDetail from '../components/HeroDetail';
 import { useSelector, useDispatch } from 'react-redux';
-import {getCityById, resetCity}  from '../redux/actions/citiesActions.js'
+import {getCityById, resetCity}  from '../redux/actions/citiesActions.js';
+import {getItineraries}  from '../redux/actions/itinerariesActions.js'
 
 export default function CityDetail() {
 
@@ -11,12 +12,22 @@ export default function CityDetail() {
 
   const dispatch = useDispatch();
 
+  const cityStore = useSelector(store => store.citiesReducer.city)
+
   useEffect(() => {
     dispatch(getCityById(id));
     return () => dispatch( resetCity())
   },[]);
 
-  const cityStore = useSelector(store => store.citiesReducer.city)
+  
+  useEffect(() => {
+    dispatch(getItineraries(id));
+    console.log('Itinerary',itineraryStore);
+    // return () => dispatch( resetCity())
+  },[]);
+  
+  const itineraryStore = useSelector(store => store.itinerariesReducer.itinerary)
+  console.log('Itinerary',itineraryStore);
 
   return (
     <>
