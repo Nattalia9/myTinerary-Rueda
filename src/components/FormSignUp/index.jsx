@@ -11,12 +11,14 @@ import { IoImageOutline } from "react-icons/io5";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { FaGoogle } from "react-icons/fa6";
 import { FaFacebookF } from "react-icons/fa6";
+import { useNavigate } from 'react-router-dom';
 
 export default function FormSignUp() {
 
   const [countries, setCountries] = useState([]);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const email = useRef(null)
   const password = useRef(null)
@@ -46,7 +48,10 @@ export default function FormSignUp() {
         userImg: userImg.current.value,
         userLocation: userLocation.current.value,
       };
-      dispatch(signUp(body));
+      dispatch(signUp(body))
+      .then(() => {
+        navigate('/signIn');
+    })
     }
   };
 

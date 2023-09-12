@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { loadUser, signUp, signIn, signInWithToken, logout } from '../actions/userActions.js'
+import { loadUser, signUp, signIn, authenticate , logout } from '../actions/userActions.js'
 
 const initialState = {
   user: null,
@@ -28,13 +28,20 @@ export const userReducer = createReducer( initialState, ( builder ) =>
         token : action.payload.token
       }
       } )
-    .addCase( signInWithToken.fulfilled, (state, action) => {
-      return {
+      .addCase( authenticate.fulfilled, (state, action) => {
+        return {
         ...state,
         user : action.payload.user,
         token : action.payload.token
-      }
-    } )
+        }
+      })
+    // .addCase( signInWithToken.fulfilled, (state, action) => {
+    //   return {
+    //     ...state,
+    //     user : action.payload.user,
+    //     token : action.payload.token
+    //   }
+    // } )
     .addCase( logout, (state, action) => {
       return  {
         ...state,

@@ -47,11 +47,11 @@ export default function NavScrollExample() {
           {
             user 
               ? (
-                <Anchor to="/user/login" className="login px-3" onClick={() => dispatch(logout())}><span className="icon"><BsFillPersonFill className="red" /></span>Log Out</Anchor>
+                <Anchor to="/" className="login px-3" onClick={() => dispatch(logout())}><span className="icon"><BsFillPersonFill className="red" /></span>Log Out</Anchor>
               )
               :
               (
-                <Anchor to="/user/login" className="login px-3"><span className="icon"><BsFillPersonFill className="red" /></span>Login</Anchor>
+                <Anchor to="signIn" className="login px-3"><span className="icon"><BsFillPersonFill className="red" /></span>Login</Anchor>
               )
           }
         </Navbar.Collapse>

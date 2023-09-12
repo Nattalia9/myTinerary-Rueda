@@ -8,7 +8,7 @@ import CityDetail from './pages/CityDetail'
 import SignUp from './pages/signUp'
 import SignIn from './pages/SignIn'
 import { useDispatch } from "react-redux";
-import { signInWithToken } from "./redux/actions/userActions";
+import { authenticate } from "./redux/actions/userActions";
 
 const router = createBrowserRouter([
   {path:'/',element: <Layout />,
@@ -16,8 +16,8 @@ const router = createBrowserRouter([
       {path:'/',element: <Home />},
       {path:'/cities',element: <Cities />},
       {path:'/cities/:id',element: <CityDetail />},
-      {path:'/user/register',element: <SignUp />},
-      {path:'/user/login',element: <SignIn />}
+      {path:'/signUp',element: <SignUp />},
+      {path:'/signIn',element: <SignIn />}
     ]
   }
 ])
@@ -28,7 +28,7 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      dispatch(signInWithToken());
+      dispatch(authenticate());
     }
   }, []);
 

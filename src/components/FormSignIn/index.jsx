@@ -7,6 +7,7 @@ import { FaFacebookF } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
 import { signIn } from "../../redux/actions/userActions.js";
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export default function FormSignIn() {
 
@@ -27,7 +28,7 @@ export default function FormSignIn() {
         password: password.current.value,
       };
       dispatch(signIn(body)).then((response) => {
-        if(response.payload.user){
+        if(response.payload.success){
           navigate("/")
         }
       });
@@ -41,12 +42,13 @@ export default function FormSignIn() {
           <div className="container font">
             <div className="row justify-content-center rep">
               <div className="col-md-6 pt-5 thn">
-                <h2 className='text-center mb-4'>Create account</h2>
+                <h2 className='text-center mb-4'>Sign In</h2>
                 <div className="sociahl d-flex gap-2 justify-content-center">
                   <span className='btn-red' title="Google"><FaGoogle className="" /></span>
                   <span className='btn-red' title="Facebook"><FaFacebookF className="" /></span>
                 </div>
-                <p className='text-center pt-2'>or use your email for registration:</p>
+                <p className='text-center pt-2'>ingrese sus datos para ingresaaaar:</p>
+                <p className='text-center pt-2'>New user? <Link to="/signUp">create an account</Link></p>
                 <form className="form-background p-4 bgn text-center" autoComplete="off" onSubmit={handleSubmit} >
                   <div className="input-group d-flex mb-3">
                     <div className="input-group-prepend d-flex ">
