@@ -8,6 +8,8 @@ import { useDispatch } from "react-redux";
 import { signIn } from "../../redux/actions/userActions.js";
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
+import { GoogleLogin } from '@react-oauth/google';
+import jwtDecode from "jwt-decode";
 
 export default function FormSignIn() {
 
@@ -35,6 +37,20 @@ export default function FormSignIn() {
     }
   };
 
+  const signInWithGoogle = (credentialResponse) => {
+    const dataUser = jwtDecode(credentialResponse.credential);
+    const body = {
+      email: dataUser.email,
+      password: dataUser.given_name + dataUser.sub,
+    };
+    dispatch(signIn(body))
+      .then((actionResponse) => {
+        if(actionResponse.payload.success){
+          navigate("/");
+        }
+      }).catch( err => console.log(err) )
+  };
+
   return (
     <div className="container-fluid bg-img bgm">
       <div className="mountain">
@@ -44,8 +60,15 @@ export default function FormSignIn() {
               <div className="col-md-6 pt-5 thn">
                 <h2 className='text-center mb-4'>Sign In</h2>
                 <div className="sociahl d-flex gap-2 justify-content-center">
-                  <span className='btn-red' title="Google"><FaGoogle className="" /></span>
-                  <span className='btn-red' title="Facebook"><FaFacebookF className="" /></span>
+                  {/* <span className='btn-red' title="Google"><FaGoogle className="" /></span>
+                  <span className='btn-red' title="Facebook"><FaFacebookF className="" /></span> */}
+                  <GoogleLogin 
+                    text="signin_with"
+                    onSuccess={signInWithGoogle}
+                    onError={() => {
+                      console.log('Login Failed');
+                    }}
+                  />
                 </div>
                 <p className='text-center pt-2'>ingrese sus datos para ingresaaaar:</p>
                 <p className='text-center pt-2'>New user? <Link to="/signUp">create an account</Link></p>

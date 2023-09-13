@@ -10,7 +10,7 @@ export const loadUser = createAction( 'load_user', (user) => {
 export const signUp = createAsyncThunk( "register_user", async ( body ) => {
   try {
     const response = await axios.post( 'http://localhost:3000/api/user/register', body )
-    localStorage.setItem( 'token', response.data.token )
+    response.data.token && localStorage.setItem( 'token', response.data.token )
     return response.data
   } catch (error) {
     console.log( error )
@@ -57,7 +57,7 @@ export const authenticate = createAsyncThunk("authenticate", async ()=>{
     .then((response) => {
       console.log("authenticated successfully");
       localStorage.setItem("token", response.data.token)
-      return response.data.user
+      return response.data?.user
     })
 
     return {
@@ -67,7 +67,6 @@ export const authenticate = createAsyncThunk("authenticate", async ()=>{
     console.log(error.message);
   }
 })
-
 
 export const logout = createAction( "reset", () => {
   localStorage.removeItem('token')

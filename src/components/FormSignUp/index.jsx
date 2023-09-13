@@ -12,6 +12,8 @@ import { MdOutlineAlternateEmail } from "react-icons/md";
 import { FaGoogle } from "react-icons/fa6";
 import { FaFacebookF } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
+import { GoogleLogin } from '@react-oauth/google';
+import jwtDecode from "jwt-decode";
 
 export default function FormSignUp() {
 
@@ -55,6 +57,21 @@ export default function FormSignUp() {
     }
   };
 
+  const signUpWithGoogle = (credentialResponse) => {
+    const dataUser = jwtDecode(credentialResponse.credential);
+    const body = {
+      email: dataUser.email,
+      password: dataUser.given_name + dataUser.sub,
+      name: dataUser.given_name,
+      lastName: dataUser.family_name,
+      userImg: dataUser.picture,
+      userLocation: dataUser.locale
+    };
+    dispatch(signUp(body))
+      .then(() => {
+        navigate('/signIn');
+    })
+  };
 
   return (
     <div className="container-fluid bg-img bgm">
@@ -65,8 +82,15 @@ export default function FormSignUp() {
               <div className="col-md-6 pt-5 thn">
                 <h2 className='text-center mb-4'>Create account</h2>
                 <div className="sociahl d-flex gap-2 justify-content-center">
-                  <span className='btn-red' title="Google"><FaGoogle className="" /></span>
-                  <span className='btn-red' title="Facebook"><FaFacebookF className="" /></span>
+                  {/* <span className='btn-red' title="Google"><FaGoogle className="" /></span>
+                  <span className='btn-red' title="Facebook"><FaFacebookF className="" /></span> */}
+                  <GoogleLogin 
+                    text="signup_with"
+                    onSuccess={signUpWithGoogle}
+                    onError={() => {
+                      console.log('Login Failed Google');
+                    }}
+                  />
                 </div>
                 <p className='text-center pt-2'>or use your email for registration:</p>
                 <form className="form-background p-4 bgn text-center" autoComplete="off" onSubmit={handleSubmit} >
@@ -118,7 +142,7 @@ export default function FormSignUp() {
                       </span>
                       </div>
                     <select className="form-controoll " name="country" ref={userLocation}>
-                    <option selected>Country...</option>
+                    <option value="">Country...</option>
                       {countries.length > 0 && countries.map((country) => ( 
                         <option key={`opt-country-${country}`} value={country}>
                           {" "}
