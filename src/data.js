@@ -82,5 +82,26 @@ export const cities = [
     country: 'Canada',
     linkImg:
       'https://images.unsplash.com/photo-1557456170-0cf4f4d0d362?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
-  }
+  },
+  {
+    id: 10,
+    city: 'Canberra',
+    country: 'Australia',
+    linkImg:
+      'https://images.unsplash.com/photo-1614984449452-803f4f4f2cce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=555&q=80',
+  },
+  {
+    id: 11,
+    city: 'Rabat',
+    country: 'Morocco',
+    linkImg:
+      'https://images.unsplash.com/photo-1560551311-b1fff4578240?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+  },
+  {
+    id: 12,
+    city: 'Quebec',
+    country: 'Canada',
+    linkImg:
+      'https://images.unsplash.com/photo-1557456170-0cf4f4d0d362?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+  },
 ];

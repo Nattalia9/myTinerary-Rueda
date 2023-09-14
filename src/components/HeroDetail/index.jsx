@@ -11,7 +11,7 @@ export default function HeroDetail({data}) {
     <div className="hero-detail-bg" style={{ backgroundImage:`url(${data.linkImg})`}}>
       <div className="container pt-5">
         <div className="row justify-content-center">
-          <div className="col-5 text-hero text-center">
+          <div className="col-lg-6 col-xl-5 text-hero text-center">
             <p className='p-country'><span className='icon-country'><BsFillGeoAltFill /></span>{data.country}</p>
             <h2>{data.city}</h2>
             <p>{data.description}</p> 

@@ -20,9 +20,13 @@
 
 }
 
+/* .form-background {
+  min-width: max-content;
+} */
+
 .reph {
   min-height: 100vh;
-	width: 80%;
+	/* width: 50%; */
 	/* display: flex; */
 	/* flex-direction: column; */
 	/* justify-content: center; */
@@ -31,17 +35,35 @@
 }
 
 .thn {
-  min-height: 100vh;
+  /* min-height: 100vh; */
+padding: 35px 20px 25px 20px;
+margin: 0 50px;
+background-color: #EEEFF2;
+width: 446px;
+height: 698.72px;
+box-shadow: inset -3px -3px 5px 0px #ffffffd9, -1px -1px 4px 0px #ffffffd5,
+    1px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  /* background: linear-gradient(160deg, #f0f1f4 0%, #e4e6eb 100%); */
+  border-radius: 0.9rem;
+
   
 }
 
 
-.f-grayt {
+/* .f-grayt {
   min-height: 100vh;
   width: 60%;
   background-color: #EEEFF2;
   position: absolute;
   right: 0;
+} */
+.f-grayyt {
+  /* min-height: 100vh; */
+  width: 60%;
+  background-color: #EEEFF2;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 .mountain {
@@ -291,8 +313,17 @@ button, input {
   box-shadow: -3px -3px 6px 2px #ffffff, 5px 5px 8px 0px rgba(0, 0, 0, 0.17),
       1px 2px 2px 0px rgba(0, 0, 0, 0.1);
   transition: 0.1s; 
+  cursor: pointer;
 }
 
-.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-MJoBVe {
+.btn-signup:hover {
+  background: linear-gradient(160deg, #e8ecf9 0%, #f9f7f7 100%);
+}
+
+/* .nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-MJoBVe {
   background: #be5757!important;
+} */
+
+.title-form {
+  color: #b6a6d3;
 }

@@ -100,4 +100,7 @@ Navbar{
   align-items: center; 
   justify-content: center; 
 	box-shadow: 2px 2px 2px rgb(207, 206, 206) inset, -2px -2px 2px white inset; 
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
 }

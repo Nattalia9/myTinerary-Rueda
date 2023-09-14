@@ -33,7 +33,7 @@
 
 .user-img {
   border-radius: 50%;
-  /* aspect-ratio: 1/1; */
+  aspect-ratio: 1/1;
   width: 60px;
   height: 60px;
   object-fit: cover;
@@ -70,6 +70,7 @@
   1px 2px 2px 0px rgba(0, 0, 0, 0.1);
 }
 
+
 .cp {
   cursor: pointer;
 }
@@ -98,14 +99,15 @@
 }
 
 .rotate {
-  transform: rotate(90deg);
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
 }
 
 .btn-to-detail,
 .icon-to-detail {
   transition: all 1s ease;
+  aspect-ratio: 1/1;
 }

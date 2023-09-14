@@ -5,14 +5,15 @@ const initialState = {
   itineraries : []
 }
 
-const itinerariesReducer= createReducer( initialState,
-  ( builder ) => builder
-    .addCase(getItineraries.fulfilled, (state, action)=>{
-      return {
-        ...state,
-        itineraries: action.payload,
-      }
-    })
+
+  const itinerariesReducer= createReducer( initialState,
+    ( builder ) => builder
+      .addCase(getItineraries.fulfilled, (state, action)=>{
+        return {
+          ...state,
+          itineraries: action.payload
+        }
+      })
     )
-    
-    export default itinerariesReducer
+        
+  export default itinerariesReducer

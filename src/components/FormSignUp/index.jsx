@@ -11,7 +11,7 @@ import { IoImageOutline } from "react-icons/io5";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { FaGoogle } from "react-icons/fa6";
 import { FaFacebookF } from "react-icons/fa6";
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { GoogleLogin } from '@react-oauth/google';
 import jwtDecode from "jwt-decode";
 
@@ -73,14 +73,19 @@ export default function FormSignUp() {
     })
   };
 
+  // let token = localStorage.getItem("token");
+  // if(token) {
+  //   window.location.assign("/")
+  // }
+
   return (
     <div className="container-fluid bg-img bgm">
       <div className="mountain">
-        <div className="f-grayt">
-          <div className="container font">
-            <div className="row justify-content-center rep">
-              <div className="col-md-6 pt-5 thn">
-                <h2 className='text-center mb-4'>Create account</h2>
+        <div className="f-grauyt">
+          <div className="container fohnt">
+            <div className="row justify-content-end align-items-bottom regp pb-4">
+              <div className="col-9 thn">
+                <h2 className='title-form text-center mb-4'>Create account</h2>
                 <div className="sociahl d-flex gap-2 justify-content-center">
                   {/* <span className='btn-red' title="Google"><FaGoogle className="" /></span>
                   <span className='btn-red' title="Facebook"><FaFacebookF className="" /></span> */}

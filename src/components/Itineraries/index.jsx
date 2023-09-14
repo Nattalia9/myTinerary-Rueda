@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './style.css'
 import itineraries from '/no-itinerary2.jpg';
 import { Link as Anchor } from 'react-router-dom'
@@ -8,37 +8,42 @@ import { BsStopwatch } from "react-icons/bs";
 import { BsHeart } from "react-icons/bs";
 import { BsGeoAlt } from "react-icons/bs";
 import { PiHash } from "react-icons/pi";
+import { useSelector, useDispatch } from 'react-redux';
+import {getItineraries}  from '../../redux/actions/itinerariesActions'
 
-export default function Itineraries({data}) {
-  console.log("para itinerary", data);
+export default function Itineraries({cityId}) {
 
-  const [rotate, setRotate] = useState(false);
-  const [showComment, setShowComment] = useState(false);
+  const dispatch = useDispatch();
 
-  function rotateIcon() {
-    setRotate(!rotate)
-  }
-  function toggleComment() {
-    setShowComment(!showComment);
-  }
+  const itineraryStore = useSelector((store) => store.itinerariesReducer);
+
+  useEffect(() => {
+    dispatch(getItineraries(cityId));
+  }, [dispatch, cityId]);
+
+  const [expandedItineraries, setExpandedItineraries] = useState({});
+
+  const toggleComment = (itineraryId) => {
+    setExpandedItineraries(prevState => ({
+      ...prevState,
+      [itineraryId]: !prevState[itineraryId],
+    }));
+  };
 
   return (
     <div className='container i-cont'>
-      <div className="row justify-content-center flex-column gap-4">
-        {data && data.length > 0 ? (
-          data.map((itinerary, index) => (
-            <div className="col-10 mx-auto" key={index}>
-              <div className="itinerary p-4 px-auto">
+      <div className="row justify-content-center flex-column gap-4 flex-wrap">
+      {itineraryStore.itineraries && itineraryStore.itineraries.length  > 0 ? (
+          itineraryStore.itineraries.map((itinerary, index) => (
+            <div className="col-10 mx-auto flex-wrap" key={index}>
+              <div className="itinerary p-4 px-auto flex-wrap">
                 <div className="title-button d-flex justify-content-between align-items-center">
                   <h3 className='i-title'>{itinerary.title}</h3>
-                  <button title="View more" className={`btn-to-detail ${rotate ? "rotate" : ""}`} onClick={() => {
-                    rotateIcon();
-                    toggleComment();
-                  }}>
-                    <Anchor><BsPlusLg className={`icon-to-detail ${rotate ? "rotate" : ""}`} /></Anchor>
+                  <button title="View more" className={`btn-to-detail ${expandedItineraries[itinerary.id] ? "rotate" : ""}`} onClick={() => toggleComment(itinerary.id)}>
+                    <Anchor><BsPlusLg className={`icon-to-detail ${expandedItineraries[itinerary.id] ? "rotate" : ""}`} /></Anchor>
                   </button>
                 </div>
-                <div className="complete-i d-flex gap-5">
+                <div className="complete-i d-flex  flex-column flex-xxl-row gap-5">
                   <div className="user d-flex gap-3">
                     <img src={itinerary.userImg} alt="userimg" className='user-img img-fluid' />
                     <div className="data-user">
@@ -46,8 +51,8 @@ export default function Itineraries({data}) {
                       <p className='p-data'><BsGeoAlt className="icon-i mb-2" />{itinerary.userLocation}</p>
                     </div>
                   </div>
-                  <div className="separator"></div>
-                  <div className="data-itinerary d-flex gap-5">
+                  <div className="separator d-flex d-none d-xxl-block"></div>
+                  <div className="data-itinerary d-flex flex-wrap flex-column flex-md-row gap-3 gap-md-5">
                     <div className="likes text-center">
                       <p className='p-data'><BsHeart className="icon-i cp" />Likes</p>
                       <h5 className="i-data">{itinerary.likes}</h5>
@@ -66,7 +71,7 @@ export default function Itineraries({data}) {
                     </div>
                   </div>
                 </div>
-                {showComment && (
+                {expandedItineraries[itinerary.id] && (
                   <div className="comment_act">
                     <h2 className='text-itinerary mt-5 text-center'>Under construction</h2>
                   </div>
@@ -75,7 +80,7 @@ export default function Itineraries({data}) {
             </div>
           ))
         ) : (
-          <div className="col-5 mx-auto ">
+          <div className="oculto col-5 mx-auto ">
             <h2 className='text-itinerary mt-5 text-center'>There are no itineraries</h2>
             <img src={itineraries} alt="no-itineraries" className='i-itineraries img-fluid' />
           </div>

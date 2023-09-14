@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './style.css'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import { cities } from '../../data';
 import { Link as Anchor } from 'react-router-dom'
+import {getCities}  from '../../redux/actions/citiesActions'
+import { useSelector, useDispatch } from 'react-redux';
 
 export default function Carousel() {
+
+  const citiesStore = useSelector(store => store.citiesReducer.allCities)
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch( getCities() );
+  }, []);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -62,7 +72,7 @@ export default function Carousel() {
       <button className='btnn btn-cities text-center px-4 py-2 mb-4 mt-3'><Anchor to="/cities" className='anchor-c'>Go to Cities</Anchor></button>
       </div>
       <Slider{...settings}>
-        {cities.map((item, key) =>(
+        {citiesStore.slice(0, 12).map((item, key) =>(
         <div key={key} className="card">
           <div className="card-top">
             <div className='container-picture'>

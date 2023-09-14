@@ -11,7 +11,7 @@ export default function CardsCollection() {
   const input = useRef(null)
   
   const citiesStore = useSelector(store => store.citiesReducer)
-  console.log("store",citiesStore);
+  // console.log("store",citiesStore);
 
   const dispatch = useDispatch();
 

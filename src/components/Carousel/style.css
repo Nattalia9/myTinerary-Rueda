@@ -123,7 +123,7 @@ h2 {
   padding: 1.5rem;
   border-radius: 0.9rem;
   text-align: center;
-  background: #b6a6d3; 
+  background: #ac9bca; 
 }
 
 .btnn:hover {
@@ -133,6 +133,8 @@ h2 {
   inset 2px 2px 3px 0px rgba(0, 0, 0, 0.07),
   1px 2px 3px 0px rgba(0, 0, 0, 0.1);
   }
+
+
 
 .anchor-c {
   color: #ffffffd7;

@@ -4,7 +4,6 @@ import Itineraries from '../components/Itineraries'
 import HeroDetail from '../components/HeroDetail';
 import { useSelector, useDispatch } from 'react-redux';
 import {getCityById, resetCity}  from '../redux/actions/citiesActions.js';
-import {getItineraries}  from '../redux/actions/itinerariesActions.js'
 
 export default function CityDetail() {
 
@@ -19,15 +18,6 @@ export default function CityDetail() {
     return () => dispatch( resetCity())
   },[]);
 
-  
-  useEffect(() => {
-    dispatch(getItineraries(id));
-    console.log('Itinerary',itineraryStore);
-    // return () => dispatch( resetCity())
-  },[]);
-  
-  const itineraryStore = useSelector(store => store.itinerariesReducer.itinerary)
-  console.log('Itinerary',itineraryStore);
 
   return (
     <>
@@ -36,7 +26,7 @@ export default function CityDetail() {
       ) : (
         <div className='container-fluid p-0 gray-bg'>
           <HeroDetail data={cityStore} />
-          <Itineraries data={cityStore.itineraries} />
+          <Itineraries cityId={cityStore._id} />
         </div> 
       )}
     </>

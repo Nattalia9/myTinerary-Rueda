@@ -8,7 +8,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { BsFillPersonFill } from 'react-icons/bs';
 import { Link as Anchor } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
-import { logout } from '../../redux/actions/userActions.js';
+import { logout, signIn } from '../../redux/actions/userActions.js';
 
 
 export default function NavScrollExample() {
@@ -43,15 +43,28 @@ export default function NavScrollExample() {
             <Nav.Link><Anchor to="/" className={navb ? 'coloo anchor-nav' : 'navb'}>/ Home</Anchor></Nav.Link>
             <Nav.Link><Anchor to="/cities" className={navb ? 'coloo anchor-nav' : 'navb'}>/ Cities</Anchor></Nav.Link>
           </Nav>
-          {/* <Button className="login px-3"><span className="icon"><BsFillPersonFill className="red" /></span>Login</Button> */}
           {
             user 
               ? (
-                <Anchor to="/" className="login px-3" onClick={() => dispatch(logout())}><span className="icon"><BsFillPersonFill className="red" /></span>Log Out</Anchor>
+                <Anchor to="/" className="login px-3" onClick={() => dispatch(logout())}>
+                  {user.userImg ? (
+                    <div className="icon" style={{ boxShadow: 'none', backgroundImage: `url(${user.userImg})` }}></div>
+                  ) : (
+                    <span className="icon">
+                      <BsFillPersonFill className="red" />
+                    </span>
+                  )}
+                  Log Out
+                </Anchor>
               )
               :
               (
-                <Anchor to="signIn" className="login px-3"><span className="icon"><BsFillPersonFill className="red" /></span>Login</Anchor>
+                <Anchor to="/signIn" className="login px-3">
+                  <span className="icon">
+                    <BsFillPersonFill className="red" />
+                  </span>
+                  Login
+                </Anchor>
               )
           }
         </Navbar.Collapse>

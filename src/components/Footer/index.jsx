@@ -10,14 +10,14 @@ export default function Footer() {
 	return (
 		<footer>
 			<div className='container py-4'>
-				<div className="row justify-content-between">
-					<div className="col-6">
-						<p>Copyright © 2023 MyTinerary. All Rights Reserved.</p>
+				<div className="row justify-content-lg-between">
+					<div className="col-lg-6">
+						<p className='mt-3 text-center text-lg-start'>Copyright © 2023 MyTinerary. All Rights Reserved.</p>
 					</div>
-					<div className="col-6 d-flex justify-content-end align-items-center gap-3">
+					<div className="col-lg-6 d-flex justify-content-center justify-content-lg-end align-items-center flex-row gap-3">
 						<Nav.Link><Anchor to="/" className='anchor'>/ Home</Anchor></Nav.Link>
             <Nav.Link eventKey="link-1" ><Anchor to="/cities" className='anchor gap-2'>/ Cities</Anchor></Nav.Link>
-						<h6>Follow Us: </h6>
+						<p className='mt-3'>Follow Us: </p>
 						<Nav className='gap-3'>
 							<Nav.Item>
 								<Nav.Link eventKey="link-1" className='social-media'><BsFacebook className='icon-color'/></Nav.Link>
