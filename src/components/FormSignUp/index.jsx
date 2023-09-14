@@ -40,7 +40,7 @@ export default function FormSignUp() {
     e.preventDefault();
     const aux = [email, password, name, lastName, userImg, userLocation];
     if (aux.some((campo) => !campo.current.value)) {
-      alert("All fields are required");
+      console.log("All fields are required");
     } else {
       const body = {
         email: email.current.value,

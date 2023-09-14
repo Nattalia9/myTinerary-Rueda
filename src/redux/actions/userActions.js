@@ -77,27 +77,29 @@ export const signIn = createAsyncThunk( "logear", async ( body ) => {
     }).showToast();
     return response.data
   } catch (error) {
-    console.log( error )
+    // console.log( error )
+    let errorMessages = error.response.data.message
+    console.log("err", errorMessages)
+
+    Toastify({
+      text: errorMessages,
+      duration: 3000,
+      newWindow: false,
+      close: false,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true, 
+      avatar:"https://cdn-icons-png.flaticon.com/128/5910/5910314.png",
+      style: {
+        background: "linear-gradient(160deg, #f0f1f4 0%, #e4e6eb 100%)",
+        borderRadius: "0.9rem",
+        color: "#000000bb",
+      },
+      // onClick: function(){}
+    }).showToast();
+    
   }
 } )
-
-// export const signInWithToken = createAsyncThunk( "logear_token", async ( ) => {
-//   try {
-//     const token = localStorage.getItem( 'token' )
-//     const response = await axios.post( 'http://localhost:3000/api/user/authenticated',{}, {
-//       headers: {
-//         Authorization : "Bearer " + token
-//       }
-//     })
-//     console.log("neee",response)
-//     return {
-//       user : response.data.user,
-//       token : token
-//     }
-//   } catch (error) {
-//     console.log( error )
-//   }
-// } )
 
 export const authenticate = createAsyncThunk("authenticate", async ()=>{
 
